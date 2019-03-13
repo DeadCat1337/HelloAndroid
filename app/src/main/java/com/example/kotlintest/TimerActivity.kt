@@ -24,6 +24,8 @@ class TimerActivity : AppCompatActivity() {
             if(cnt == 1000){
                 tv.text = "тысяча"
                 cancel()
+                isRunning = false
+                b1.text = "Stopped"
             }
             if(cnt > 1000)
                 cnt = 1
@@ -46,8 +48,10 @@ class TimerActivity : AppCompatActivity() {
             }
             isRunning = !isRunning
         }
-        tv.text = "Nothing is here for now"
-        b1.text = "Just was born"
+        //tv.text = "Nothing is here for now"
+        //b1.text = "Just was born"
+        tv.text = ""
+        b1.text = "Start"
     }
 
     override fun onSaveInstanceState(outState : Bundle) {
@@ -75,14 +79,14 @@ class TimerActivity : AppCompatActivity() {
         tv.text = "Resume"
     }*/
 
-    override fun onPause() {
+    /*override fun onPause() {
         super.onPause()
-        tv.text = "Paused"
-    }
+        b1.text = "Paused"
+    }*/
 
     /*override fun onStart() {
         super.onStart()
-        tv?.text = "Hello?"
+        tv.text = "Hello?"
     }*/
 
     val units = arrayOf("", "один", "два", "три", "четыре", "пять",
