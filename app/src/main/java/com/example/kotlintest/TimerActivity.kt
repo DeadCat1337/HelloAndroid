@@ -60,7 +60,8 @@ class TimerActivity : AppCompatActivity() {
         super.onRestoreInstanceState(savedInstanceState)
         cnt = savedInstanceState?.getInt("COUNTER") ?: 0
         isRunning = savedInstanceState?.getBoolean("IS_RUNNING") ?: false
-        tv.text = "" + cnt
+        //tv.text = "" + cnt
+        setStringedTime(cnt)
         if(isRunning) {
             b1.text = "Running from restored"
             timer.start()
