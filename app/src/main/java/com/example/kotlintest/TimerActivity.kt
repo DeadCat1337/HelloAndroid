@@ -12,8 +12,6 @@ class TimerActivity : AppCompatActivity() {
     var cnt = 0
     private val timer = object : CountDownTimer(1000000, 1000) {
         override fun onFinish() {
-            //cnt++
-            //tv.text = "" + cnt
             setStringedTime(cnt)
             start()
         }
@@ -23,15 +21,15 @@ class TimerActivity : AppCompatActivity() {
             setStringedTime(cnt)
             if(cnt == 1000){
                 tv.text = "тысяча"
+                b1.text = "Stopped"
                 cancel()
                 isRunning = false
-                b1.text = "Stopped"
             }
             if(cnt > 1000)
                 cnt = 1
         }
     }
-    var isRunning: Boolean = false;
+    var isRunning: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,8 +89,8 @@ class TimerActivity : AppCompatActivity() {
         "шестьсот ", "семьсот ", "восемьсот ", "девятьсот ")
 
     fun setStringedTime(x : Int){
-        var number : String = ""
-        var digits = x.toString().toList().map { (it - '0').toInt()}.reversed()
+        var number = ""
+        val digits = x.toString().toList().map { (it - '0')}.reversed()
 
         if(digits.size > 2)number += hundreds[digits[2]]
 
