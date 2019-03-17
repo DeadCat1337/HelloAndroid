@@ -48,8 +48,6 @@ class TimerActivity : AppCompatActivity() {
             }
             isRunning = !isRunning
         }
-        //tv.text = "Nothing is here for now"
-        //b1.text = "Just was born"
         tv.text = ""
         b1.text = "Start"
     }
@@ -64,7 +62,6 @@ class TimerActivity : AppCompatActivity() {
         super.onRestoreInstanceState(savedInstanceState)
         cnt = savedInstanceState?.getInt("COUNTER") ?: 0
         isRunning = savedInstanceState?.getBoolean("IS_RUNNING") ?: false
-        //tv.text = "" + cnt
         setStringedTime(cnt)
         if(isRunning) {
             b1.text = "Running from restored"
@@ -84,11 +81,6 @@ class TimerActivity : AppCompatActivity() {
         b1.text = "Paused"
     }*/
 
-    /*override fun onStart() {
-        super.onStart()
-        tv.text = "Hello?"
-    }*/
-
     val units = arrayOf("", "один", "два", "три", "четыре", "пять",
         "шесть", "семь", "восемь", "девять", "десять",
         "одинадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать",
@@ -103,8 +95,6 @@ class TimerActivity : AppCompatActivity() {
         var digits = x.toString().toList().map { (it - '0').toInt()}.reversed()
 
         if(digits.size > 2)number += hundreds[digits[2]]
-        //if(digits.size > 1)number += tens[digits[1]]
-        //number += units[digits[0]]
 
         if(x%100 < 20) number += units[x%20]
         else{
@@ -112,6 +102,5 @@ class TimerActivity : AppCompatActivity() {
             number += units[digits[0]]
         }
         tv.text = number
-        //b1.text = "" + x + "; \n" + digits.toString()
     }
 }

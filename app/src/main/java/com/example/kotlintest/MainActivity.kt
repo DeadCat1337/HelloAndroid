@@ -23,19 +23,29 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        timer.start()
+        //timer.start()
         val start = findViewById<Button>(R.id.start_button)
         start.text = "Just Started"
-        start.setOnClickListener {
+        /*start.setOnClickListener {
             //start.text = "Clicked"
             //timer.start()
             //startTimerActivity()
-        }
+        }*/
     }
 
     private fun startTimerActivity() {
         val intent = Intent(this, TimerActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        timer.cancel()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        timer.start()
     }
 }
